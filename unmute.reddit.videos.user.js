@@ -7,7 +7,7 @@
 // @match          https://www.reddit.com/*
 // @grant          none
 // @compatible     edge Tampermonkey or Violentmonkey
-// @compatible     firefox Greasemonkey, Tampermonkey or Violentmonkey
+// @compatible     firefox Tampermonkey or Violentmonkey
 // @compatible     chrome Tampermonkey or Violentmonkey
 // @compatible     opera Tampermonkey or Violentmonkey
 // @supportURL     https://github.com/FlowerForWar/unmute-reddit-videos/issues
