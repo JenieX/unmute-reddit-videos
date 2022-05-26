@@ -1,5 +1,5 @@
 # Unmute Reddit videos
-Override the default behavior of Reddit videos, that is being played as muted.
+A User script to override the default behavior of Reddit videos, that is being played as muted.
 
 [Github](https://github.com/FlowerForWar/unmute-reddit-videos), [Greasy Fork](https://greasyfork.org/en/scripts/445557-unmute-reddit-videos)
 
