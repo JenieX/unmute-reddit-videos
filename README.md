@@ -1,4 +1,4 @@
-# unmute-reddit-videos
+# Unmute Reddit videos
 Override the default behavior of Reddit videos, that is being played as muted.
 
 ### Videos related user scripts
