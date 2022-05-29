@@ -1,6 +1,6 @@
 # Unmute Reddit videos
 A User script to override the default behavior of Reddit videos, that is being played as muted.  
-Shotcut to set the default volume (shift+alt+o).
+Shortcut to set the default volume (shift+alt+o).
 
 [Github](https://github.com/FlowerForWar/unmute-reddit-videos), [Greasy Fork](https://greasyfork.org/en/scripts/445557-unmute-reddit-videos)
 
@@ -9,4 +9,4 @@ Shotcut to set the default volume (shift+alt+o).
 
 # Changelog
 ### 0.02 (22-05-29)
-* Add a shotcut to set the default volume (shift+alt+o).
+* Add a shortcut to set the default volume (shift+alt+o).
