@@ -6,8 +6,11 @@ Shortcut to set the default volume (shift+alt+o).
 
 
 ### known issues (when using custom default volume)
-* The volume slider in Reddit videos doesn't actually match the volume of the video, but this user script does
-* Reddit seems to adjust the volume of all videos, when one is manually changed by the slider, I'll have to look for a way to solve this
+* The volume slider in Reddit videos doesn't actually match the volume  
+of the video, but this user script does.
+* When using custom default volume, the only way to change the volume  
+by the slider, is to do so when the video is playing, as it would always  
+use the default volume when played after paused.
 
 ### Related user scripts
 * [Space Bar to play/pause Reddit videos](https://greasyfork.org/en/scripts/444775-space-bar-to-play-pause-reddit-videos)
