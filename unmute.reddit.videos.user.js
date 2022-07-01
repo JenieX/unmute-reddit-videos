@@ -10,7 +10,6 @@
 // @grant          GM.setValue
 // @grant          GM_getValue
 // @grant          GM_setValue
-// @grant          GM_xmlhttpRequest
 // @run-at         document-start
 // @compatible     edge Tampermonkey or Violentmonkey
 // @compatible     firefox Tampermonkey or Violentmonkey
