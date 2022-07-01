@@ -36,7 +36,6 @@ let defaultVolume;
 
   const { play } = HTMLMediaElement.prototype;
   HTMLMediaElement.prototype.play = async function () {
-    console.log(this);
     if (this.muted) {
       try {
         if (oldReddit) {
