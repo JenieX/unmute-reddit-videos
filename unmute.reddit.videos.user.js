@@ -1,79 +1,111 @@
 // ==UserScript==
 // @name           Unmute Reddit videos
-// @namespace      https://github.com/FlowerForWar/unmute-reddit-videos
+// @namespace      https://github.com/FlowerForWar/unmute.reddit.videos
 // @description    Override the default behavior of Reddit videos, that is being played as muted
-// @version        0.02
+// @version        0.03
 // @author         FlowrForWar
 // @match          https://www.reddit.com/*
+// @match          https://old.reddit.com/*
 // @grant          GM.getValue
 // @grant          GM.setValue
 // @grant          GM_getValue
 // @grant          GM_setValue
+// @grant          GM_xmlhttpRequest
+// @run-at         document-start
 // @compatible     edge Tampermonkey or Violentmonkey
 // @compatible     firefox Tampermonkey or Violentmonkey
 // @compatible     chrome Tampermonkey or Violentmonkey
 // @compatible     opera Tampermonkey or Violentmonkey
-// @supportURL     https://github.com/FlowerForWar/unmute-reddit-videos/issues
+// @supportURL     https://github.com/FlowerForWar/unmute.reddit.videos/issues
+// @icon           https://www.google.com/s2/favicons?sz=64&domain=reddit.com
 // @license        MIT
 // ==/UserScript==
 
-(async function() {
-	let default_volume = await getStorageValue('default-volume');
+function setStorageValue(key, value) {
+  return (typeof GM !== 'undefined' ? GM.setValue : GM_setValue)(key, value);
+}
 
-	const play = HTMLMediaElement.prototype.play;
-	HTMLMediaElement.prototype.play = async function() {
-		if (this.muted) {
-			try {
-				const muteButton = this.offsetParent.lastElementChild.lastElementChild.lastElementChild;
-				if (muteButton.tagName === 'BUTTON' && muteButton.lastElementChild.tagName === 'svg') muteButton.click();
-			} catch (error) {
-				this.muted = !1;
-			}
-		}
-		if (default_volume) {
-			this.addEventListener('volumechange', volumechange);
-			this.volume = this.dataset.volume ? Number(this.dataset.volume) : default_volume / 100;
+function getStorageValue(key) {
+  return (typeof GM !== 'undefined' ? GM.getValue : GM_getValue)(key);
+}
 
-			setTimeout(() => {
-				try {
-					const volumeSlider = this.offsetParent.lastElementChild.lastElementChild.querySelector('div[style^="height"]');
-					// For whatever reason,
-					// the first video will not apply the change to the slider unless there is a delay.
-					volumeSlider.style.setProperty('height', `${this.volume * 100}%`);
-				} catch (error) {}
-			}, 100);
-		}
+const oldReddit = window.location.host === 'old.reddit.com';
+let defaultVolume;
 
-		// console.log(this.volume);
-		play.apply(this);
-	};
+(async () => {
+  defaultVolume = await getStorageValue('default-volume');
 
-	function volumechange() {
-		this.dataset.volume = this.volume;
-	}
+  const { play } = HTMLMediaElement.prototype;
+  HTMLMediaElement.prototype.play = async function () {
+    console.log(this);
+    if (this.muted) {
+      try {
+        if (oldReddit) {
+          this.offsetParent.querySelector('button.volume').click();
+        } else {
+          const muteButton = this.offsetParent.lastElementChild.lastElementChild.lastElementChild;
+          if (muteButton.tagName === 'BUTTON' && muteButton.lastElementChild.tagName === 'svg') muteButton.click();
+        }
+      } catch (error) {
+        this.muted = !1;
+      }
+    }
+    if (defaultVolume) {
+      this.volume = defaultVolume / 100;
 
-	async function setStorageValue(key, value) {
-		await (typeof GM !== 'undefined' ? GM.setValue : GM_setValue)(key, value);
-	}
-	async function getStorageValue(key) {
-		return await (typeof GM !== 'undefined' ? GM.getValue : GM_getValue)(key);
-	}
+      /**
+       * Change the volume slider to match the volume, and
+       * for whatever reason, the first video will not apply
+       * the change to the slider unless there is a delay.
+       */
+      setTimeout(() => {
+        try {
+          const volumeSlider = this.offsetParent.lastElementChild.lastElementChild.querySelector('div[style^="height"]');
+          volumeSlider.style.setProperty('height', `${this.volume * 100}%`);
+        } catch (error) {
+          // console.error(error);
+        }
+      }, 100);
+    }
 
-	window.addEventListener('keydown', async ({ key, shiftKey, altKey }) => {
-		if (!(key === 'O' && shiftKey && altKey)) return;
-
-		const prompt_data = prompt('User script  |  Unmute Reddit videos\n\nChanging the default volume\n\nEnter a number between 1-100', default_volume || 100);
-		const prompt_data_as_number = Number(prompt_data);
-
-		if (!prompt_data || !prompt_data_as_number) return alert('Invalid input');
-		if (!(prompt_data_as_number > 0 && prompt_data_as_number <= 100)) return alert('Number is out of range');
-
-		await setStorageValue('default-volume', prompt_data_as_number);
-		const default_volume_fresh = await getStorageValue('default-volume');
-		alert(`User script  |  Unmute Reddit videos\n\nUpdated default volume\n\nDefault volume: ${default_volume_fresh}%`);
-		default_volume = default_volume_fresh;
-
-		const videos = document.getElementsByTagName('video');
-		for (let index = 0; index < videos.length; index++) videos[index].removeAttribute('data-volume');
-	});
+    play.apply(this);
+  };
 })();
+
+window.addEventListener('keydown', async ({ key, shiftKey, altKey }) => {
+  if (!(key === 'O' && shiftKey && altKey)) return;
+
+  const newDefaultVolume = Number(
+    prompt(
+      [
+        //
+        'User script  |  Unmute Reddit videos',
+        'Changing the default volume',
+        'Enter a number between 1-100',
+      ].join('\n\n'),
+      defaultVolume || 100,
+    ),
+  );
+
+  if (!newDefaultVolume) {
+    alert('Invalid input');
+    return;
+  }
+  if (!(newDefaultVolume > 0 && newDefaultVolume <= 100)) {
+    alert('Number is out of range');
+    return;
+  }
+
+  await setStorageValue('default-volume', newDefaultVolume);
+
+  const updatedDefaultVolume = await getStorageValue('default-volume');
+  alert(
+    [
+      //
+      'User script  |  Unmute Reddit videos',
+      'Updated default volume',
+      `Default volume: ${updatedDefaultVolume}%`,
+    ].join('\n\n'),
+  );
+  defaultVolume = updatedDefaultVolume;
+});
