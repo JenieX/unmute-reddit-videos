@@ -1,0 +1,13 @@
+{
+  "name": "unmute.reddit.videos",
+  "version": "0.02",
+  "description": "Override the default behavior of Reddit videos, that is being played as muted",
+  "main": "unmute.reddit.videos.user.js",
+  "author": "FlowerForWar",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.18.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0"
+  }
+}
