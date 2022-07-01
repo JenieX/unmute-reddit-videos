@@ -5,7 +5,7 @@ Shortcut to set the default volume (shift+alt+o).
 [Github](https://github.com/FlowerForWar/unmute-reddit-videos), [Greasy Fork](https://greasyfork.org/en/scripts/445557-unmute-reddit-videos)
 
 
-### known issues (when using custom default volume)
+### known issues
 * The volume slider in Reddit videos doesn't actually match the volume  
 of the video, but this user script does.
 * When using custom default volume, the only way to change the volume  
