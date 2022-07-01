@@ -5,9 +5,9 @@ Shortcut to set the default volume (shift+alt+o).
 [Github](https://github.com/FlowerForWar/unmute-reddit-videos), [Greasy Fork](https://greasyfork.org/en/scripts/445557-unmute-reddit-videos)
 
 
-### Issues/Facts
-* By design, it seems like web browsers disallow auto-play for videos  
-when they are not muted, unless you interact with the page first
+### Issues and Facts
+* By design, and for a good reason, web browsers disallow auto-play  
+for videos when they are not muted, unless you interact with the page first
 * The volume slider in Reddit videos doesn't actually match the volume  
 of the video, but this user script does.
 * When using custom default volume, the only way to change the volume  
