@@ -20,7 +20,7 @@ Shortcut to set the default volume (shift+alt+o).
 #### 0.03 (22-07-01)
 
 - Add support for old.reddit.com
-- Switch to different approach when using custom default volume. Now, videos will  
+- Switch to a different approach when using custom default volume. Now, videos will  
   always play with the default volume, and the way to change the volume, is by  
   the slider, only when the video is being played. This to overcome the the second issue [here](https://github.com/FlowerForWar/unmute.reddit.videos/blob/1540157ccb92aabd671ac2568d820b4faaba60e6/README.md)
 
