@@ -2,7 +2,7 @@
 // @name           Unmute Reddit videos
 // @namespace      https://github.com/FlowerForWar/unmute.reddit.videos
 // @description    Override the default behavior of Reddit videos, that is being played as muted
-// @version        0.03
+// @version        0.04
 // @author         FlowrForWar
 // @match          https://www.reddit.com/*
 // @match          https://old.reddit.com/*
@@ -42,7 +42,12 @@ let defaultVolume;
           this.offsetParent.querySelector('button.volume').click();
         } else {
           const muteButton = this.offsetParent.lastElementChild.lastElementChild.lastElementChild;
-          if (muteButton.tagName === 'BUTTON' && muteButton.lastElementChild.tagName === 'svg') muteButton.click();
+          if (
+            muteButton.tagName === 'BUTTON' &&
+            muteButton.lastElementChild.tagName === 'svg' &&
+            muteButton.getAttribute('aria-label') !== 'Fullscreen'
+          )
+            muteButton.click();
         }
       } catch (error) {
         this.muted = !1;
@@ -58,7 +63,10 @@ let defaultVolume;
        */
       setTimeout(() => {
         try {
-          const volumeSlider = this.offsetParent.lastElementChild.lastElementChild.querySelector('div[style^="height"]');
+          const volumeSlider =
+            this.offsetParent.lastElementChild.lastElementChild.querySelector(
+              'div[style^="height"]',
+            );
           volumeSlider.style.setProperty('height', `${this.volume * 100}%`);
         } catch (error) {
           // console.error(error);
