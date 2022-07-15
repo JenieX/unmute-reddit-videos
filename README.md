@@ -17,6 +17,10 @@ Shortcut to set the default volume (shift+alt+o).
 
 ## Changelog
 
+#### 0.04 (22-07-15)
+
+- Fix when [viewing embedded videos](https://www.reddit.com/r/firefox/comments/uxvyc1/comment/ifu464u/?utm_source=reddit&utm_medium=web2x&context=3). [Example post](https://www.reddit.com/r/NameThatSong/comments/vx2gso/genre_soft_piano_solo_maybe_from_a_video_game_or/).
+
 #### 0.03 (22-07-01)
 
 - Add support for old.reddit.com
