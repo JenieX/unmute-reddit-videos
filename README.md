@@ -15,7 +15,7 @@ Shortcut to set the default volume (shift+alt+o).
   the slider, only when the video is being played, as it would always  
   use the default volume when played after paused.
 
-  ## Related user scripts
+## Related user scripts
 
 - [Force highest video quality on Reddit](https://greasyfork.org/en/scripts/446806-force-highest-video-quality-on-reddit) by [x0a](https://www.reddit.com/user/x0acake/).
   - Doesn't support old Reddit layout at the moment.
