@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name           Unmute Reddit videos
-// @namespace      https://github.com/FlowerForWar/unmute.reddit.videos
+// @namespace      https://github.com/FlowerForWar/unmute-reddit-videos
 // @description    Override the default behavior of Reddit videos, that is being played as muted
 // @version        0.04
 // @author         FlowrForWar
@@ -15,7 +15,7 @@
 // @compatible     firefox Tampermonkey or Violentmonkey
 // @compatible     chrome Tampermonkey or Violentmonkey
 // @compatible     opera Tampermonkey or Violentmonkey
-// @supportURL     https://github.com/FlowerForWar/unmute.reddit.videos/issues
+// @supportURL     https://github.com/FlowerForWar/unmute-reddit-videos/issues
 // @icon           https://www.google.com/s2/favicons?sz=64&domain=reddit.com
 // @license        MIT
 // ==/UserScript==
