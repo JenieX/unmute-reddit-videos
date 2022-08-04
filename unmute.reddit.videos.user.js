@@ -2,7 +2,7 @@
 // @name           Unmute Reddit videos
 // @namespace      https://github.com/FlowerForWar/unmute-reddit-videos
 // @description    Override the default behavior of Reddit videos, that is being played as muted
-// @version        0.04
+// @version        0.05
 // @author         FlowrForWar
 // @match          https://www.reddit.com/*
 // @match          https://old.reddit.com/*
@@ -45,7 +45,8 @@ let defaultVolume;
           if (
             muteButton.tagName === 'BUTTON' &&
             muteButton.lastElementChild.tagName === 'svg' &&
-            muteButton.getAttribute('aria-label') !== 'Fullscreen'
+            muteButton.getAttribute('aria-label') !== 'Fullscreen' &&
+            muteButton.getAttribute('aria-label') !== 'Exit Fullscreen'
           )
             muteButton.click();
         }
