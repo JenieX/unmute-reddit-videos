@@ -25,7 +25,7 @@ Shortcut to set the default volume (shift+alt+o).
 
 #### 0.05 (22-08-04)
 
-- [Fix bug](https://github.com/FlowerForWar/unmute-reddit-videos/issues/2#issue-1327872579) when viewing embedded videos with no sound in fullscreen, thanks to [p3ngwin](https://github.com/p3ngwin) for figuring out the issue.
+- [Fix bug](https://github.com/FlowerForWar/unmute-reddit-videos/issues/2#issue-1327872579) when viewing embedded videos with no sound in fullscreen, thanks to [p3ngwin](https://github.com/FlowerForWar/unmute-reddit-videos/issues/2#issuecomment-1204655801) for figuring out the issue.
 
 #### 0.04 (22-07-15)
 
