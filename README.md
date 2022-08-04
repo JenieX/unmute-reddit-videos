@@ -1,6 +1,6 @@
 # Unmute Reddit videos
 
-[Github](https://github.com/FlowerForWar/unmute.reddit.videos), [Greasy Fork](https://greasyfork.org/en/scripts/445557-unmute-reddit-videos)
+[Github](https://github.com/FlowerForWar/unmute-reddit-videos), [Greasy Fork](https://greasyfork.org/en/scripts/445557-unmute-reddit-videos)
 
 A User script to override the default behavior of Reddit videos, that is being played as muted.  
 Shortcut to set the default volume (shift+alt+o).
@@ -23,6 +23,10 @@ Shortcut to set the default volume (shift+alt+o).
 
 ## Changelog
 
+#### 0.05 (22-08-04)
+
+- [Fix bug](https://github.com/FlowerForWar/unmute-reddit-videos/issues/2#issue-1327872579) when viewing embedded videos with no sound in fullscreen, thanks to [p3ngwin](https://github.com/p3ngwin) for figuring the issue.
+
 #### 0.04 (22-07-15)
 
 - Fix when [viewing embedded videos](https://www.reddit.com/r/firefox/comments/uxvyc1/comment/ifu464u/?utm_source=reddit&utm_medium=web2x&context=3). [Example post](https://www.reddit.com/r/NameThatSong/comments/vx2gso/genre_soft_piano_solo_maybe_from_a_video_game_or/).
@@ -32,7 +36,7 @@ Shortcut to set the default volume (shift+alt+o).
 - Add support for old.reddit.com
 - Switch to a different approach when using custom default volume. Now, videos will  
   always play with the default volume, and the way to change the volume, is by  
-  the slider, only when the video is being played. This to overcome the the second issue [here](https://github.com/FlowerForWar/unmute.reddit.videos/blob/1540157ccb92aabd671ac2568d820b4faaba60e6/README.md)
+  the slider, only when the video is being played. This to overcome the the second issue [here](https://github.com/FlowerForWar/unmute-reddit-videos/blob/1540157ccb92aabd671ac2568d820b4faaba60e6/README.md)
 
 #### 0.02 (22-05-29)
 
@@ -40,4 +44,4 @@ Shortcut to set the default volume (shift+alt+o).
 
 ## License
 
-[MIT](https://github.com/FlowerForWar/unmute.reddit.videos/blob/main/LICENSE)
+[MIT](https://github.com/FlowerForWar/unmute-reddit-videos/blob/main/LICENSE)
